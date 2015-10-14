@@ -16,7 +16,7 @@ angular.module('nextissueApp')
 
         var ticker = angular.element('#ticker');
 		
-		ticker.append("<div id='arrow'/>");
+		    ticker.append("<div id='arrow'/>");
       	ticker.append("<div id='flag'/>");
       	ticker.append("<div id='news'/>");
 
@@ -26,7 +26,7 @@ angular.module('nextissueApp')
         arrow.html("<img src='../../images/glyphicons-213-down-arrow.png'/>");
         arrow.css({'float':'left', 'background-color':'red'});
 
-		var current = 0;
+		    var current = 0;
         arrow.on('click',function() {
         	if (current >= 3) {
         		current = 0;
@@ -44,58 +44,57 @@ angular.module('nextissueApp')
 
         });
 
-		var flag = angular.element('#flag');
+		    var flag = angular.element('#flag');
         var flagSrc = "<img src='../../" + ticker_data[0].flag + "' height='32px' width='42px'/>";
 
         flag.html(flagSrc);
         flag.css('float', 'left');
 
-		var news = angular.element('#news');
+		    var news = angular.element('#news');
         news.html('<p>'+ticker_data[0].content + '</p>');
         news.css('color', 'yellow');
         news.css({'height':'32px', 'width':'80%', 'color':'red', 'zIndex':'-1', 'float':'left'});
 
-		$window.addEventListener("load", startTicker, false);
+		    $window.addEventListener("load", startTicker, false);
 
         function startTicker() {
         	//var sz = news[0].offsetWidth;
         	//alert(sz);
 
           var pos = ['left','offsetWidth','top','width'],                           
-		  id = 'ticker',                                                          
-		  delay = 2000,                                                              
-		  ud = -1,                              
-		  p = ticker[0], 
-		  obj = news[0], 
-		  sz = obj['offsetWidth'],
-		  clone,
-		  nu = $window.Math.ceil(p['offsetWidth']/sz)+1,
-		  z0 = 1;
+		      id = 'ticker',                                                          
+		      delay = 2000,                                                              
+		      ud = -1,                              
+		      p = ticker[0], 
+		      obj = news[0], 
+		      sz = obj['offsetWidth'],
+		      clone,
+		      nu = $window.Math.ceil(p['offsetWidth']/sz)+1,
+		      z0 = 1;
 
-		  p.style.overflow = 'hidden';
+		      p.style.overflow = 'hidden';
 
-		  obj.style.position = 'absolute';
-		  obj.style[pos[0]] = '0px';
-		  obj.style[pos[3]] = sz + 'px';
-		  for (;z0<nu;z0++){
-		   clone=obj.cloneNode(true);
-		   clone.style[pos[0]]=sz*z0+'px';
-		   clone.style[pos[2]]='0px';
-		   obj.appendChild(clone);
-		  }
-		  var o = {
-		   obj:obj,
-		   pos:pos[0],
-		   sz:sz*(z0-1)
-		  }
+		      obj.style.position = 'absolute';
+		      obj.style[pos[0]] = '0px';
+		      obj.style[pos[3]] = sz + 'px';
+		      for (;z0<nu;z0++){
+  		   clone=obj.cloneNode(true);
+  		   clone.style[pos[0]]=sz*z0+'px';
+  		   clone.style[pos[2]]='0px';
+  		   obj.appendChild(clone);
+  		  }
+  		  var o = {
+  		   obj:obj,
+  		   pos:pos[0],
+  		   sz:sz*(z0-1)
+  		  }
 
-		  if (typeof(delay) == 'number'){
-		   scope.dly=setTimeout(function(){scroll(o, id,typeof(ud)=='number'?ud:-1); }, delay);
-		  }
-		  else {
-		    scroll(id,0)
-		  }
-
+  		  if (typeof(delay) == 'number'){
+  		   scope.dly=setTimeout(function(){scroll(o, id,typeof(ud)=='number'?ud:-1); }, delay);
+  		  }
+  		  else {
+  		    scroll(id,0)
+  		  }
     }
 
 
@@ -119,6 +118,6 @@ angular.module('nextissueApp')
 		  }
 		}
 		
-      }
+    }
     };
   }]);
