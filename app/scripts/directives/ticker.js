@@ -96,26 +96,26 @@ angular.module('nextissueApp')
 		    scroll(id,0)
 		  }
 
-        }
+    }
 
 
-        function scroll(o, id, ud){
+    function scroll(o, id, ud) {
 
 		  var p;
 		  
-		  if (o){
-		   ud=typeof(ud)=='number'?ud:0;
+		  if (o) {
+		   ud=typeof(ud)=='number' ? ud : 0;
 		   clearTimeout(o.dly);
 
-		   p=parseInt(o.obj.style[o.pos])+ud;
+		   p = parseInt(o.obj.style[o.pos])+ud;
 
-		   if ((ud>0&&p>0)||(ud<0&&p<-o.sz)){
+		   if ((ud>0&&p>0) || (ud<0&&p<-o.sz)){
 		    p+=o.sz*(ud>0?-1:1);
 		   }
 
-		   o.obj.style[o.pos]=p+'px';
+		   o.obj.style[o.pos] = p+'px';
 
-		   o.dly=setTimeout(function(){ scroll(o, id,ud); },50);
+		   o.dly = setTimeout(function(){ scroll(o, id,ud); },50);
 		  }
 		}
 		
