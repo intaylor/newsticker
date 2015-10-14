@@ -20,6 +20,7 @@ The project contains some example files from the seed project which are not rela
 
 To run this project,
 
-1. unzip the project in a directory : $dir
+0. use yo angular generator to create an angular seed project
+1. Copy all the files into the seed project
 2. cd $dir/nextissue, run grunt serve, please make sure grunt is installed on your running machine
 3. preview the project
